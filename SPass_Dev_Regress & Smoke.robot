@@ -383,14 +383,19 @@ AppsList
     Sleep    2s
     Click Element    //button[@class='css-1hyd4x5']    
     Sleep    2s
-    Click Element    //button[@class='css-ab32j2'][contains(text(),'30')]  
-    Sleep    2s      
+    Wait Until Page Contains Element    //button[@class='css-ab32j2'][contains(text(),'30')]        # when elementnotinteractableexception message element not interactable error occurs
+    Sleep    2s
+    Wait Until Element Is Enabled    //button[@class='css-ab32j2'][contains(text(),'30')]    # when elementnotinteractableexception message element not interactable error occurs
+    Sleep    2s
+    Click Element    //button[@class='css-ab32j2'][contains(text(),'30')]
+    Sleep    2s  
     Wait Until Element Is Visible    //*[@class='css-1vwly8k']
     Sleep    2s  
     Click Element    //button[@id='spassAppsFilterClearBtn']
     Reload Page
     Sleep    5s
     
+  
     # Verify filter functionality for Deleted
     # Verify Apply button function
     # Verify Clear All button function
@@ -470,13 +475,150 @@ AppsList
     Reload Page
     Sleep    5s
     
-
     # Verifty filter functionality for From and To Date
-
-    
+    # Verify Apply button function
+    # Verify Clear All button function
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'From')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020     
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--001']    
+    Sleep    2s
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'To')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--028 react-datepicker__day--today']
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s    
+        
     # Verify filter functionality when one date is only given
+    # Verify Apply button function
+    # Verify Clear All button function
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'From')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020     
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--001']    
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s
+    
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'To')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--001']
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s    
+    
 
+
+
+TestRejected
+    Open Browser    https://dev-admin.samsungpass.com/#/    ${browsers}[0]
+    Maximize Browser Window
+    Set Browser Implicit Wait    10s 
+    Sleep    2s
     
+    # Verify proper navigation to App Management
+    # Verify Header "Apps"
+    Wait Until Element Is Visible    id=lnbAppManagementLink    # Apps tab
+    Click Element    id=lnbAppManagementLink
+    Title Should Be    Samsung Pass
+    Page Should Contain    Apps
+    Sleep    3s
     
-    Log To Console    %{username} ran this test on %{os}. Test Execution completed with no errors.
-    Close Window
+   
+    # Verifty filter functionality for From and To Date
+    # Verify Apply button function
+    # Verify Clear All button function
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'From')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020     
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--001']    
+    Sleep    2s
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'To')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--028 react-datepicker__day--today']
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //li[@class='rc-pagination-next']//div[@id='iconButtonComponent']//*[local-name()='svg']    
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s    
+        
+    # Verify filter functionality when one date is only given
+    # Verify Apply button function
+    # Verify Clear All button function
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'From')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020     
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--001']    
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s
+    
+    Click Element    //*[@class='css-1gg9gay']//*[contains(text(),'To')]
+    Sleep    2s
+    Wait Until Page Contains    July 2020
+    Sleep    2s   
+    Click Element    //div[@class='react-datepicker__day react-datepicker__day--015']
+    Sleep    2s
+    Click Element    //button[@class='css-doaywb']
+    Page Should Contain    2020-07
+    Sleep    2s
+    Wait Until Element Is Visible    //*[@class='css-1vwly8k']
+    Capture Page Screenshot
+    Sleep    2s
+    Click Element    //button[@id='spassAppsFilterClearBtn']
+    Sleep    5s
