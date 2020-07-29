@@ -9,7 +9,7 @@ Default Tags    Smoke
 
 *** Test Cases ***
 AppsList
-    [Tags]    Functional Test
+    [Tags]    RegressionTest [PASSPORTAL-1100]
     Open Browser    https://dev-admin.samsungpass.com/#/    ${browsers}[0]
     Maximize Browser Window
     Set Browser Implicit Wait    10s 
