@@ -1,6 +1,6 @@
 *** Settings ***
 Library    Selenium2Library
-Default Tags    Smoke
+Default Tags    Smoke Testing
 
 *** Variables ***    
 @{browsers}    Chrome    Firefox    Edge 
@@ -9,7 +9,7 @@ Default Tags    Smoke
 
 *** Test Cases ***
 AppsList
-    [Tags]    RegressionTest [PASSPORTAL-1100]
+    [Tags]    RegressionTesting [PASSPORTAL-1100]
     Open Browser    https://dev-admin.samsungpass.com/#/    ${browsers}[0]
     Maximize Browser Window
     Set Browser Implicit Wait    10s 
